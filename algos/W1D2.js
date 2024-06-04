@@ -24,7 +24,11 @@ const expected4 = "";
  * @returns {string} The given str reversed.
  */
 function reverseString(str) {
-    //Your code here!
+    let newStr = ""
+    for (let i = 0; i < str.length; i++){
+        newStr = str[i] + newStr
+    }
+    return newStr
 }
 
 //TEST CODE FOR REVERSE
