@@ -21,7 +21,7 @@ dict['color3'] #green
 
 #Assignment
 
-list[2] = 'pink' #updates third index to 'pink'
+list[2] = 'pink' #updates value stored under third index to 'pink'
 dict['color3'] = 'pink' #updates value stored paired with key 'color3' to 'pink'
 
 #Adding to list/dict
