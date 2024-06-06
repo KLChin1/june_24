@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Play With Jinja!</title>
+    <style>
+        body{
+            color: {{color}};
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+</head>
+<body>
+    {#<!-- <p>{{jinja_var}}</p> -->#}
+    {% for one_user in users %}
+        <p>{{one_user}}
+            {% if one_user == 'Bob'  %}
+            -- it's bob! 
+            <img src="{{ url_for('static',filename='cake.jpg')}}" alt="a cake">
+            {%else%} -- not bob! 
+            {%endif%}
+        </p>
+    {% endfor %}
+</body>
+</html>

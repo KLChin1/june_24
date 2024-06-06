@@ -31,6 +31,22 @@ def get_user(id):
 def serve_temp():
     return render_template("index.html")
 
+@app.route('/fun')
+@app.route('/fun/<color>')
+def jinja_fun(color='black'):
+    ##
+    return render_template("jinja_fun.html",jinja_var = "centipedes", users=users,color=color)
+
+@app.route('/list_of_dicts')
+def list_of_dicts():
+    student_info = [
+       {'name' : 'Michael', 'age' : 35},
+       {'name' : 'John', 'age' : 30 },
+       {'name' : 'Mark', 'age' : 25},
+       {'name' : 'KB', 'age' : 27}
+    ]
+    return render_template("list_of_dicts.html", list_of_dicts=student_info)
+
 @app.errorhandler(404)
 def error_page(e):
     return "You must be lost"
