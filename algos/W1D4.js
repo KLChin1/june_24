@@ -49,7 +49,19 @@ function isPalindrome(str){
     return str === str.split("").reverse().join("")
 }
 
+function isPalindrome(str) {
+    var endpoint = str.length-1;
 
+    for (var i=0; i<endpoint; i++) {
+        if (str[i] === str[endpoint]) {
+            endpoint--;
+        }
+        else {
+            return false;
+        }      
+    }
+    return true;
+}
 
 console.log(isPalindrome(str1)); //expected: true
 console.log(isPalindrome(str2)); //expected: true
