@@ -14,3 +14,5 @@ class Snake(Combatant):
             print(f"{self.name} is too slippery to get hit!")
         else:
             super().defend(damage)
+print("I ran")
+print(__name__)
