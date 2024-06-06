@@ -23,8 +23,33 @@ const expected5 = true;
 
 
 function isPalindrome(str) {
-    //Your code here
+    for (let i = 0; i < str.length/2; i++){
+        let j = str.length - 1 - i;
+        if (str[i] != str[j]){
+            return false
+        }
+    }
+    return true
 }
+
+function isPalindrome(str) {
+    let i = 0;
+    let j = str.length-1
+    while(i < j){
+        if (str[i] != str[j]){
+            return false;
+        }
+        i++
+        j--
+    }
+    return true
+}
+
+function isPalindrome(str){
+    return str === str.split("").reverse().join("")
+}
+
+
 
 console.log(isPalindrome(str1)); //expected: true
 console.log(isPalindrome(str2)); //expected: true
