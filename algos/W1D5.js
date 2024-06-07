@@ -3,7 +3,7 @@
   String Encode
   You are given a string that may contain sequences of consecutive characters.
   Create a function to shorten a string by including the character,
-  then the number of times it appears. 
+  then the number of times it appears. If the character only appears once, do not include a '1'
   
   If final result is not shorter (such as "bb" => "b2" ),
   return the original string.
