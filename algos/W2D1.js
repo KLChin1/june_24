@@ -5,17 +5,20 @@
 
 const arr1 = ["a", "a", "a"];
 const expected1 = {
-  a: 3,
+    a: 3,
 };
 
 const arr2 = ["a", "b", "a", "c", "Bob", "c", "c", "d"];
 const expected2 = {
-  a: 2,
-  b: 1,
-  c: 3,
-  Bob: 1,
-  d: 1,
+    a: 2,
+    b: 1,
+    c: 3,
+    Bob: 1,
+    d: 1,
 };
+
+// expected2['example'] = 'value'
+
 
 const arr3 = [];
 const expected3 = {};
@@ -30,14 +33,22 @@ const expected3 = {};
  *  Possible hint: .hasOwnProperty() <- Don't know it? Google it as a group!
  */
 function makeFrequencyTable(arr) {
-  //Your code here
+    let freq = {};
+    for (let element of arr) {
+        if (freq.hasOwnProperty(element)) {
+            freq[element]++;
+        } else {
+            freq[element] = 1;
+        }
+    }
+    return freq;
 }
 
-console.log(makeFrequencyTable(arr1))
+console.log(makeFrequencyTable(arr1));
 console.log("Expected: ", expected1);
-console.log(makeFrequencyTable(arr2))
+console.log(makeFrequencyTable(arr2));
 console.log("Expected: ", expected2);
-console.log(makeFrequencyTable(arr3))
+console.log(makeFrequencyTable(arr3));
 console.log("Expected: ", expected3);
 
 
@@ -64,7 +75,14 @@ const numsD = [5, 2, 6, 2, 3, 1, 6, 3, 2, 5, 2];
 const expectedD = 1;
 
 function oddOccurrencesInArray(nums) {
-  //Your code here
+    //Your code here
+    let freq = makeFrequencyTable(nums)
+    for (let key in freq){
+        if (freq[key] %2 == 1){
+            return parseInt(key)
+        }
+    }
+    return false
 }
 
 
@@ -72,3 +90,9 @@ console.log(oddOccurrencesInArray(numsA), "should equal", expectedA);
 console.log(oddOccurrencesInArray(numsB), "should equal", expectedB);
 console.log(oddOccurrencesInArray(numsC), "should equal", expectedC);
 console.log(oddOccurrencesInArray(numsD), "should equal", expectedD);
+
+
+//JS for in/of loops over array
+// for (let index in arr) USE IN FOR INDICES
+//for (let element of arr) USE OF FOR EACH ELEMENT
+//for (let key in object)
