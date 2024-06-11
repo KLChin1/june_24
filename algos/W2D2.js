@@ -27,8 +27,27 @@ const expected5 = "ba" // possibly ab without bonus
  * @param {string} str A string that may contain duplicates.
  * @returns {string} The given string with any duplicate characters removed.
  */
+// O(n)
+function stringDedupe2(str) {
+    const seen = {}
+    let deduped = ""
+    for (let i = str.length-1; i >= 0; i--){
+        if (!seen.hasOwnProperty(str[i])){
+            seen[str[i]] = true
+            deduped = str[i] + deduped
+        }
+    }
+    return deduped
+}
+//roughly O(n*m) where n is all chars and m is unique chars
 function stringDedupe(str) {
-    //Your code here
+    let deduped = ""
+    for (let i = str.length-1; i >= 0; i--){
+        if (!deduped.includes(str[i])){
+            deduped = str[i] + deduped
+        }
+    }
+    return deduped
 }
 
 console.log(stringDedupe(str1));
