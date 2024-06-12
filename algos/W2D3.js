@@ -24,8 +24,13 @@ const expected3 = false;
  * @returns {boolean} Whether the parenthesis are valid.
  */
 function parensValid(str) {
-    //Your code here
-
+    let unmatchedOpens = 0;
+    for (let char of str) {
+        if (char === "(") unmatchedOpens++
+        if (char === ")") unmatchedOpens--
+        if (unmatchedOpens < 0) return false
+    }
+    return unmatchedOpens === 0;
 }
 
 console.log(parensValid(str1)) // expected: true
@@ -55,8 +60,40 @@ const expectedC = false;
  * @returns {boolean} Whether the given strings braces are valid.
  */
 function bracesValid(str) {
-    //Your code here
+    const stack = []; //used to keep track of our open braces
+    const isOpen = { "(": true, "{": true, "[": true } //this object lets us quickly check whether a character is an opening bracket
+    const closesToOpens = { // this object maps each closing bracket to its open
+        ")": "(", 
+        "}": "{", 
+        "]": "["
+     };
+
+    for (let char of str) { //iterate through the string
+        if (isOpen[char]) { //if the current character is one of our opens
+            stack.push(char); //add it to our stack
+        } else if (closesToOpens[char]) { //else, if it's one of our closes
+            if (closesToOpens[char] === stack[stack.length - 1]) { //check if it's the correct close for our last open
+                stack.pop(); //if it is, remove the open from the stack because it is matched
+            } else {
+                return false; //if it isn't, nesting is invalid, end function return false
+            }
+        }
+    }
+    return stack.length === 0; // if the stack is empty, all were matched and valid, else it is invalid
 }
 console.log(bracesValid(strA)) // expected: true
 console.log(bracesValid(strB)) // expected: false
 console.log(bracesValid(strC)) // expected: false
+
+
+
+
+
+
+
+
+
+
+
+
+console.log(Math.floor(Math.random()*2)+1)
