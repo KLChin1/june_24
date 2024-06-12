@@ -10,7 +10,8 @@
     <h1>Welcome to the Dogs App</h1>
     <ul>
         {% for one_dog in all_dogs %}
-            <li><a href="/dogs/{{one_dog.id}}/view">{{one_dog.name}}</a> is a {{one_dog.age}} year(s) old {{one_dog.breed}}</li>
+            <li><a href="/dogs/{{one_dog.id}}/view">{{one_dog.name}}</a> is a {{one_dog.age}} year(s) old {{one_dog.breed}} <a href="/dogs/{{one_dog.id}}/delete">Delete</a></li>
+            <li><a href="/dogs/{{one_dog.id}}/edit" class="btn btn-info">Edit</a></li>
         {% endfor %}
     </ul>
     <a href="/dogs/new" class="btn btn-primary">New Dog</a>

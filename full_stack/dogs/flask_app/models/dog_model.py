@@ -41,3 +41,22 @@ class Dog:
             VAlUES (%(name)s, %(age)s, %(breed)s)
         """
         return connect_to_mysql(DATABASE).query_db(query,data)
+    
+    @classmethod
+    def delete(cls, data):
+        query = """
+            DELETE FROM dogs WHERE dogs.id = %(id)s;
+        """
+        return connect_to_mysql(DATABASE).query_db(query,data)
+    
+    @classmethod
+    def update(cls, data):
+        query = """
+            UPDATE dogs SET
+            name = %(name)s,
+            age = %(age)s,
+            breed = %(breed)s
+            WHERE dogs.id = %(id)s;
+        """
+        return connect_to_mysql(DATABASE).query_db(query,data)
+
