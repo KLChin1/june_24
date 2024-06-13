@@ -38,7 +38,17 @@ to the original position.
  * @returns {string} The string rotated by the given amount.
  */
 function rotateStr(str, amnt) {
-    //Your code here
+    let amnt = amnt % str.length;
+    if (amnt === 0) return str;
+    let charsToFront = "";
+    let theRest = "";
+    for (let i = str.length - amnt; i < str.length; i++) {
+        charsToFront += str[i];
+    }
+    for (let i = 0; i < str.length - amnt; i++) {
+        theRest += str[i];
+    }
+    return charsToFront + theRest;
 }
 
 console.log(rotateStr(str, rotateAmnt1)); // expected: "Hello World"
@@ -79,7 +89,17 @@ const expectedC = false;
  * @returns {boolean} Whether the second string is a rotated version of the 1st.
  */
 function isRotation(s1, s2) {
-    //Your code here
+    if (s1.length !== s2.length) return false;
+    for (let i = 0; i < s1.length; i++) {
+        if (s1 === rotateStr(s2, i)) return true;
+    }
+    return false;
+}
+
+function isRotation2(s1, s2) {
+    if (s1.length !== s2.length) return false;
+    let combined = s1 + s1;
+    return combined.includes(s2);
 }
 
 console.log(isRotation(strA1, strA2)); // expected: true
