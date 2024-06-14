@@ -72,7 +72,7 @@ function updateInventory2(newInv, currentInv) { //O(2n)
     for (let i = 0; i < currentInv.length; i++) {
         // save a reference to this currentInv item into our hash table object
         // so we can look it up with O(1) constant time
-        currInvTable[currentInv[i].name] = currentInv[i];
+        currInvTable[currentInv[i].name] = currentInv[i]; //key is item name, value is ref to whole item object
     }
 
     for (let i = 0; i < newInv.length; i++) {
