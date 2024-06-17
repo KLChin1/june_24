@@ -44,13 +44,13 @@ console.log(socialDistancingEnforcer(queue4)); // true
   Return -1 if none exist.
   
 */ //[4,1,0,5]
-// 0   1  2  3  4
-const numsA = [-2, 5, 7, 0, 3];
+              // 0   1  2  3 
+const numsA = [4,   1,  0,  5];
 const expectedA = 2;
 
 const numsB = [9, 9];
 const expectedB = -1;
-
+//             0  1  2  3  4  5  6  7  8  9  10
 const numsC = [1, 1, 1, 1, 1, 9, 1, 1, 1, 1, 1];
 const expectedC = 5;
 
