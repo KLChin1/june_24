@@ -35,7 +35,41 @@ const expected4 = 4;
  * @returns {boolean} Whether the given num exists in the given array.
  */
 function binarySearch(sortedNums, searchNum) {
-    //Your code here
+    //declare left and right at beginning and end of array
+    let left = 0; 
+    let right = sortedNums.length - 1;
+
+    while (left <= right) {
+        //calculate midpoint
+        let mid = Math.floor((left + right) / 2);
+        //check for match
+        if (sortedNums[mid] === searchNum) {
+            return countAdjacentDupes(sortedNums, mid); //bonus
+            // return true; //base functionality
+        } else if (sortedNums[mid] < searchNum) { //if found value smaller than search
+            left = mid + 1; //move left point up to only search above mid point
+        } else { //otherwise, found value is larger than search value
+            right = mid - 1; //move right pointer down to only search below midpoint
+        }
+    }
+    return false;
+}
+
+function countAdjacentDupes(arr, idx) {
+    let count = 1; // we know we found one, at idx
+    let elem = arr[idx]; //this is what we're going to match
+    let right = idx + 1; //we'll look up
+    let left = idx - 1; //and down
+    while (arr[right] === elem) { //looking up -- finds matches to the right
+        count++;
+        right++;
+    }
+    while (arr[left] === elem) { //looking down -- finds matches to the left
+        count++;
+        left--;
+    }
+    return count;
+
 }
 
 
