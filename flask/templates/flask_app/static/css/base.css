@@ -1,0 +1,52 @@
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.container{
+    height: 100vh;
+    overflow: hidden;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1% 2%;
+}
+
+.nav h2 {
+    font-size: 3rem;
+}
+
+.nav_links{
+    display: flex;
+    gap: 1rem;
+    font-size: 2rem;
+}
+
+.nav_link {
+    text-decoration: none;
+}
+
+.nav_link:hover{
+    text-decoration: underline;
+}
+
+.page_head{
+    text-align: center;
+    font-size: 4rem;
+}
+
+.side_main{
+    display: flex;
+    height: 100%;
+}
+
+.side{
+    background-color: blue;
+    width: 20rem;
+}
+
