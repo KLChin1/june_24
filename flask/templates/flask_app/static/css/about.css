@@ -1,1 +1,13 @@
 /* todo */
+*{
+    color:red;
+}
+
+#about_link {
+    text-decoration: underline;
+}
+
+.main {
+    height: 100%;
+    overflow: scroll;
+}

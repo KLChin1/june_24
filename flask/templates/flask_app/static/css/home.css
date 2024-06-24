@@ -1,1 +1,13 @@
 /* todo */
+*{
+    color:blue;
+}
+
+#home_link{
+    text-decoration: underline;
+}
+
+.main img{
+    display: block;
+    margin: 0 auto;
+}

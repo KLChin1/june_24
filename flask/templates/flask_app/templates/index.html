@@ -1,1 +1,12 @@
-<!-- todo -->
+{% extends 'base.html' %}
+{% block title %}Main Page{% endblock title %}
+{% block head %}
+    {{super()}}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
+
+{% endblock head %}
+{% block main_content %}
+    <div class="main">
+        <img src="https://loremflickr.com/320/240" alt="a kitten">
+    </div>
+{% endblock main_content %}

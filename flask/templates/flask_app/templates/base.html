@@ -5,8 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Templates</title>
+    <title>{% block title %}Templates{% endblock title %}     
+    </title>
+    {% block head %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}">
+        
+    {% endblock head %}
 </head>
 
 <body>
@@ -19,15 +23,25 @@
                 <a href="/cats" id="cats_link" class="nav_link">Cats</a>
             </div>
         </div>
-        <h1 class="page_head">Page Title</h1>
+        <h1 class="page_head">{{self.title()}}</h1>
+        {% block main_content %}
+        {% block with_side_bar %}
+            
         <div class="side_main">
             <div class="side">
+                {% block side_bar %}
                 <h2>Base Side Bar</h2>
+                {% endblock side_bar %}
             </div>
             <div class="content">
+                {% block side_content %}
+                    
+                {% endblock side_content %}
             </div>
         </div>
-
+        
+        {% endblock with_side_bar %}
+        {% endblock main_content %}
     </div>
 </body>
 

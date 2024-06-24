@@ -1,1 +1,13 @@
 /* todo */
+*{
+    color:black;
+}
+
+#cats_link{
+    text-decoration: underline;
+}
+
+.side_links li {
+    margin: 2rem;
+    font-size: 2rem;
+}

@@ -1,1 +1,22 @@
-<!-- todo -->
+{% extends 'base.html' %}
+{% block title %}Cats{% endblock title %}
+{% block head %}
+    {{super()}}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/cats.css') }}">
+
+{% endblock head %}
+{% block main_content %}
+  {% block with_side_bar %}
+        {{super()}}
+    {% endblock with_side_bar %}
+    {% block side_bar %}
+        <ul class="side_links">
+            <li><a href="/cats/pics">Cat 1</a></li>
+            <li><a href="/cats/facts">Cat 2</a></li>
+            <li><a href="/cats/toys">Cat Toys</a></li>
+        </ul>
+    {% endblock side_bar %}
+    {% block side_content %}
+        <p>Please choose a link from the left</p>
+    {% endblock side_content %} 
+{% endblock main_content %}

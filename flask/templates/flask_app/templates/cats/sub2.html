@@ -1,1 +1,7 @@
-<!-- todo -->
+{% extends 'cats/cats.html' %}
+{% block title %}
+    {{super()}} -- Cat 2
+{% endblock title %}
+{% block side_content %}
+    <img src="https://loremflickr.com/600/600" alt="a kitten">
+{% endblock side_content %}
