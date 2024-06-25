@@ -27,17 +27,17 @@ function factorial(n) {
     //Your code here
 
     //Santize value?
-
+    n = Math.floor(n);
     //Base case?
-    
+    if (n <= 0) return 1;
+    return n * factorial(n - 1);
     //Recursive return / call
-
 }
 
 /*****************************************************************************/
-console.log(factorial(num1)) // 6
-console.log(factorial(num2)) // 720
-console.log(factorial(num3)) // 1
+console.log(factorial(num1)); // 6
+console.log(factorial(num2)); // 720
+console.log(factorial(num3)); // 1
 
 /*
   Sum To One Digit
@@ -54,7 +54,7 @@ console.log(factorial(num3)) // 1
 const numA = 5;
 const expectedA = 5;
 
-const numB = 10;
+const numB = 10; // 1+0 = 1
 const expectedB = 1;
 
 const numC = 25;
@@ -67,12 +67,37 @@ const expectedD = 9;
  * @param {number} num The number to sum to one digit.
  * @returns {number} One digit.
  */
- function sumToOneDigit(num){
-  //Your code here
+function sumToOneDigit(num) {
+    //Base case?
+    if (num < 10) {
+        return num;
+    }
+    // Logic ?
+    let sum = 0;
+    while (num > 0) {
+        sum += num % 10;
+        num = Math.floor(num / 10);
+    }
+    // Recursive call / return
+    return sumToOneDigit(sum);
 }
 
-console.log(sumToOneDigit(numA)) // 5
-console.log(sumToOneDigit(numB)) // 1
-console.log(sumToOneDigit(numC)) // 7
-console.log(sumToOneDigit(numD)) // 9
+console.log(sumToOneDigit(numA)); // 5
+console.log(sumToOneDigit(numB)); // 1
+console.log(sumToOneDigit(numC)); // 7
+console.log(sumToOneDigit(numD)); // 9
 /*****************************************************************************/
+
+
+
+
+
+
+
+
+function sumToOneDigit(num) {
+    if (num == 0) return 0;
+    if (num % 9 == 0) return 9;
+    return num % 9;
+
+}
