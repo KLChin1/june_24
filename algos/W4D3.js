@@ -54,3 +54,22 @@ console.log(fibonacci(num3)); // 1
 console.log(fibonacci(num4)); // 2
 console.log(fibonacci(num5)); // 3
 console.log(fibonacci(num6)); // 21
+
+
+function fibonacci(num) {
+    //Base case(s)?
+    if (num < 2) return num;
+    //Recursive return / call
+    return fibonacci(num - 1) + fibonacci(num - 2);
+}
+
+
+function fibonacci(num, memo = { 0: 0, 1: 1 }) {
+    if (memo[num] == undefined) {
+        memo[num] = fibonacci(num - 1, memo) + fibonacci(num - 2, memo);
+    }
+    return memo[num];
+    
+}
+
+console.log(fibonacci(42));
