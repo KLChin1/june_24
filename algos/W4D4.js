@@ -30,13 +30,21 @@ const expected3 = true;
  * @returns {boolean} Whether the searchNum was found in the sortedNums array.
  */
 // don't be afraid to add parameters! <---------
- function binarySearch(sortedNums, num) {
+function binarySearch(sortedNums, searchNum, left=0, right=sortedNums.length-1) {
     //Your code here
-    //Base cases? 
-    //Logic
-    //Recursive call(s) /return(s)
-
+    if (left > right) { //if our left has passed our right, no more values to check
+        return false;
+    }
+    const mid = Math.floor((left + right) / 2); // calculate mid
+    if (sortedNums[mid] === searchNum) {
+        return true; //found
+    }
+    if (sortedNums[mid] > searchNum) { //if the mid val is greater than the search, adjust right
+        return binarySearch(sortedNums, searchNum, left, mid - 1); 
+    }
+    return binarySearch(sortedNums, searchNum, mid + 1, right); //else adjust left
 }
+
 
 
 console.log(binarySearch(nums1, searchNum1)); // false
